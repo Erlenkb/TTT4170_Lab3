@@ -1,0 +1,34 @@
+clc;
+clear all;
+close all;
+
+Erlend_test_1 = matfile("Erlend_Test1.mat");
+Erlend_test_2 = matfile("Erlend_Test2.mat");
+Emil_test_1 = matfile("Emil_Test1.mat");
+Emil_test_2 = matfile("Emil_Test2.mat");
+
+x = linspace(-20, 20);
+y = x;
+
+Erl_perceived_1 = Erlend_test_1.responseval;
+Erl_presented_1 = Erlend_test_1.anglevec;
+Emi_perceived_1 = Emil_test_1.responseval;
+Emi_presented_1 = Emil_test_1.anglevec;
+
+figure(5)
+plot(-Erl_presented_1, Erl_perceived_1, ".", Color="blue",MarkerSize=15)
+hold on
+plot(-Emi_presented_1, Emi_perceived_1, ".", Color="red", MarkerSize=15)
+plot(x,y)
+hold off
+grid on
+xlabel("Presented Angle [deg]"),ylabel("Perceived Angle [deg]"), title("Perceived vs. Presented angle for the Intensity Stereo test")
+xlim([-18 18]), ylim([-20 22]);
+legend()
+set(gcf,'units','centimeters','position',[3,1,25,11.0]);
+set(gca,'fontsize',12,'fontweight','bold');
+
+
+%plot(Erlend_Test1.mat)
+
+
